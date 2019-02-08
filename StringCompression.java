@@ -25,9 +25,8 @@ class StringCompression {
         return result;
     }
 
-    public static HashMap<Character,Integer> createHashMap(String s){
+    public static void createHashMap(String s){
         java.util.HashMap<Character, Integer> mapOfChars = new java.util.HashMap<Character,Integer>();
-        StringBuilder mutableString = new StringBuilder();
 
         for (Character c: s.toLowerCase().toCharArray()){
             if (mapOfChars.get(c) == null){
@@ -37,21 +36,29 @@ class StringCompression {
             }
         }
 
-        return mapOfChars;
+        printCharacters(mapOfChars);
 
     }
 
-   /* public static String printCharacters(HashMap<Character,Integer>){
+    public static void printCharacters(HashMap<Character,Integer> mapOfChars){
+        StringBuilder mutableString = new StringBuilder();
+
+        for (Map.Entry<Character, Integer> x: mapOfChars.entrySet()){
+            mutableString.append(x.getKey() + x.getValue());
+        }
+
+        System.out.println(mutableString.toString());
 
 
 
-    } */
+    }
 
 
 
     public static void main(String args[]){
         String input = getInput();
         createHashMap(input);
+
 
     }
 
